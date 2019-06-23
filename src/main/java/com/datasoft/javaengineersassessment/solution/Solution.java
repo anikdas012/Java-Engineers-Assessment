@@ -25,5 +25,7 @@ public class Solution implements Runnable{
 	 */
 	private void getInput() {
 		int numberOfTestCase = Integer.parseInt(Objects.requireNonNull(IO.readLine()));
+		for (int i=0; i<numberOfTestCase; i++) {
+		}
 	}
 }
