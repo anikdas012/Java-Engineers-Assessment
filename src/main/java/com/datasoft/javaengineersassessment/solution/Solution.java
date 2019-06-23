@@ -61,7 +61,7 @@ public class Solution implements Runnable{
 				}
 				jsonObjects.add(new JsonParser().parse(jobj.toString()).getAsJsonObject());
 			}
-			showOutput(tableNames, jsonObjects);
+			showOutput(tableNames, jsonObjects, i+1);
 			if (i+1 < numberOfTestCase) {
 				IO.readLine();
 			}
@@ -77,6 +77,6 @@ public class Solution implements Runnable{
 	 * @param tableNames
 	 * @param jsonObjects
 	 */
-	private void showOutput(ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects) {
+	private void showOutput(ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects, int testCaseNo) {
 	}
 }
