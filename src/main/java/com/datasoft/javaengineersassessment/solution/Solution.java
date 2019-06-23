@@ -19,6 +19,7 @@ public class Solution implements Runnable{
 	@Override
 	public void run() {
 		System.out.println("All set ...");
+		getInput();
 		System.out.println("Goodbye :)");
 	
 	}
