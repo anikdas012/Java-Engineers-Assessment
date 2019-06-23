@@ -78,6 +78,7 @@ public class Solution implements Runnable{
 	 * @param jsonObjects
 	 */
 	private void showOutput(ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects, int testCaseNo) {
+		System.out.println("Test# "+testCaseNo);
 	}
 
 
