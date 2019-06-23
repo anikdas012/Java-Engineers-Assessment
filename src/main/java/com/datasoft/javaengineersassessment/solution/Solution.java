@@ -60,6 +60,11 @@ public class Solution implements Runnable{
 				}
 				jsonObjects.add(new JsonParser().parse(jobj.toString()).getAsJsonObject());
 			}
+			showOutput(tableNames, jsonObjects);
 		}
+	}
+
+
+	private void showOutput(ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects) {
 	}
 }
