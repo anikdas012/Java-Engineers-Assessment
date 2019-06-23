@@ -81,18 +81,20 @@ public class Solution implements Runnable{
 		System.out.println("Test# "+testCaseNo);
 		for (String tableName : tableNames) {
 			System.out.print(tableName + " ");
-		}
-		System.out.print("\nid");
-		if (tableNames.size() == 1) {
-			Object[] maxKeys = jsonObjects.get(getMaxSize(jsonObjects)).keySet().toArray();
-			for (Object maxKey : maxKeys) {
-				System.out.print(" " + maxKey);
-			}
-			for (int i=0; i<jsonObjects.size(); i++) {
-				System.out.print("\n"+i);
-				for (Object maxKey: maxKeys) {
-					System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey))).replace("\"", ""));
+			System.out.print("\nid");
+			if (tableNames.size() == 1) {
+				Object[] maxKeys = jsonObjects.get(getMaxSize(jsonObjects)).keySet().toArray();
+				for (Object maxKey : maxKeys) {
+					System.out.print(" " + maxKey);
 				}
+				for (int i=0; i<jsonObjects.size(); i++) {
+					System.out.print("\n"+i);
+					for (Object maxKey: maxKeys) {
+						System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey))).replace("\"", ""));
+					}
+				}
+			} else {
+
 			}
 		}
 	}
