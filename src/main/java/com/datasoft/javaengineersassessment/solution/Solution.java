@@ -82,6 +82,13 @@ public class Solution implements Runnable{
 		for (String tableName : tableNames) {
 			System.out.print(tableName + " ");
 		}
+		System.out.print("\nid");
+		if (tableNames.size() == 1) {
+			Object[] maxKeys = jsonObjects.get(getMaxSize(jsonObjects)).keySet().toArray();
+			for (Object maxKey : maxKeys) {
+				System.out.print(" " + maxKey);
+			}
+		}
 	}
 
 
