@@ -16,7 +16,10 @@ public class Solution implements Runnable{
 	}
 
 
+	/**
+	 * This method will get user input
+	 */
 	private void getInput() {
-		
+
 	}
 }
