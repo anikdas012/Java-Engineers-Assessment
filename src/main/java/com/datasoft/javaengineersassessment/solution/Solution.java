@@ -80,8 +80,8 @@ public class Solution implements Runnable{
 	private void showOutput(ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects, int testCaseNo) {
 		System.out.println("Test# "+testCaseNo);
 		for (String tableName : tableNames) {
-			System.out.print(tableName + " ");
-			System.out.print("\nid");
+			System.out.println(tableName + " ");
+			System.out.print("id");
 			if (tableNames.size() == 1) {
 				Object[] maxKeys = jsonObjects.get(getMaxSize(jsonObjects)).keySet().toArray();
 				for (Object maxKey : maxKeys) {
