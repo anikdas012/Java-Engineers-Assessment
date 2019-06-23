@@ -26,6 +26,9 @@ public class Solution implements Runnable{
 	private void getInput() {
 		int numberOfTestCase = Integer.parseInt(Objects.requireNonNull(IO.readLine()));
 		for (int i=0; i<numberOfTestCase; i++) {
+			String[] temp = IO.readLine().split(" ");
+			int numberOfTables = Integer.parseInt(temp[0]);
+			int numberOfJsonData = Integer.parseInt(temp[1]);
 		}
 	}
 }
