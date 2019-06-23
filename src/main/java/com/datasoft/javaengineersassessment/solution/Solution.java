@@ -65,6 +65,12 @@ public class Solution implements Runnable{
 	}
 
 
+	/**
+	 * This method will show output in required structure
+	 *
+	 * @param tableNames
+	 * @param jsonObjects
+	 */
 	private void showOutput(ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects) {
 	}
 }
