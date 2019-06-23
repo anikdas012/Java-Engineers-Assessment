@@ -14,4 +14,9 @@ public class Solution implements Runnable{
 		System.out.println("Goodbye :)");
 	
 	}
+
+
+	private void getInput() {
+		
+	}
 }
