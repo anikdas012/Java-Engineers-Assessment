@@ -79,4 +79,15 @@ public class Solution implements Runnable{
 	 */
 	private void showOutput(ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects, int testCaseNo) {
 	}
+
+
+	private int getMaxSize(ArrayList<JsonObject> jsonObjects) {
+		int maxIndex = 0;
+		for (int i=0; i<jsonObjects.size(); i++) {
+			if (jsonObjects.get(i).size() > jsonObjects.get(maxIndex).size()) {
+				maxIndex = i;
+			}
+		}
+		return maxIndex;
+	}
 }
