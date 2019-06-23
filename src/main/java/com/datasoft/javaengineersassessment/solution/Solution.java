@@ -62,7 +62,11 @@ public class Solution implements Runnable{
 				jsonObjects.add(new JsonParser().parse(jobj.toString()).getAsJsonObject());
 			}
 			showOutput(tableNames, jsonObjects);
-			IO.readLine();
+			if (i+1 < numberOfTestCase) {
+				IO.readLine();
+			}
+			tableNames.clear();
+			jsonObjects.clear();
 		}
 	}
 
