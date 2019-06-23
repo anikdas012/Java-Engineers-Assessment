@@ -88,7 +88,7 @@ public class Solution implements Runnable{
 					System.out.print(" " + maxKey);
 				}
 				for (int i=0; i<jsonObjects.size(); i++) {
-					System.out.print("\n"+i);
+					System.out.print("\n"+(i+1));
 					for (Object maxKey: maxKeys) {
 						System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey))).replace("\"", ""));
 					}
