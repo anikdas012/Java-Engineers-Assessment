@@ -101,7 +101,7 @@ public class Solution implements Runnable{
 		System.out.println("\n\n\n");
 
 //		Printing test case number
-		System.out.println("Test# "+testCaseNo);
+		System.out.println("\nTest# "+testCaseNo);
 
 //		Printing table names and data
 		for (String tableName : tableNames) {
