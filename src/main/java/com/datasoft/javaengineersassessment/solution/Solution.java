@@ -1,6 +1,7 @@
 package com.datasoft.javaengineersassessment.solution;
 
 import com.datasoft.javaengineersassessment.utils.IO;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -176,20 +177,49 @@ public class Solution implements Runnable{
 				} else {
 //					Printing column names for the table who's data is in the nested json object
 					if (jsonObjects.get(maxKeyIndex).get(tableName.split("\\(")[0]).isJsonObject()) {
-						JsonObject jsonObject = jsonObjects.get(maxKeyIndex).get(tableName.split("\\(")[0]).getAsJsonObject();
+//						Retrieving the key who's value is json object
+						String key = tableName.split("\\(")[0];
+
+//						Getting the maximum key list for all the objects
+						JsonObject jsonObject = jsonObjects.get(maxKeyIndex).get(key).getAsJsonObject();
 						maxKeys = jsonObject.keySet().toArray();
+
+//						Printing keys as column name
 						for (Object maxKey : maxKeys) {
 							System.out.print(" " + maxKey);
 						}
 
+//						Printing all data rows in required order
+						if (tableName.contains("desc")) {
+							for (int i=jsonObjects.size()-1; i>=0; i--) {
+								System.out.print("\n"+(i+1));
+//								Getting inner object
+								jsonObject = jsonObjects.get(i).get(key).getAsJsonObject();
+								for (Object maxKey : maxKeys) {
+//									Printing values of inner object
+									System.out.print(" " + String.valueOf(jsonObject.get(String.valueOf(maxKey)))
+											.replace("\"", ""));
+								}
+							}
+						} else {
+							for (int i=0; i<jsonObjects.size(); i++) {
+								System.out.print("\n"+(i+1));
+//								Getting inner object
+								jsonObject = jsonObjects.get(i).get(key).getAsJsonObject();
+								for (Object maxKey : maxKeys) {
+//									Printing values of inner object
+									System.out.print(" " + String.valueOf(jsonObject.get(String.valueOf(maxKey)))
+											.replace("\"", ""));
+								}
+							}
+						}
+
 //						Adding empty line between tables of same test case
 						System.out.println();
-					} else {
-//						Printing column name for array data
-						System.out.print(" " + tableNames.get(0).split("\\(")[0] + " "+ tableName.split("\\(")[0]);
 					}
 				}
 			}
+//			Adding line break after each table
 			System.out.println();
 		}
 	}
