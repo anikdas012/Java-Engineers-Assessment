@@ -106,12 +106,16 @@ public class Solution implements Runnable{
 //		Printing table names and data
 		for (String tableName : tableNames) {
 			System.out.println(tableName);
+
+//			Printing 1st column name which is id
 			System.out.print("id");
+
+//			Retrieving all the column names form json object
+			Object[] maxKeys = jsonObjects.get(getMaxSize(jsonObjects)).keySet().toArray();
 
 //			Checking number of tables for the case
 			if (tableNames.size() == 1) {
 //				Printing all the column names
-				Object[] maxKeys = jsonObjects.get(getMaxSize(jsonObjects)).keySet().toArray();
 				for (Object maxKey : maxKeys) {
 					System.out.print(" " + maxKey);
 				}
