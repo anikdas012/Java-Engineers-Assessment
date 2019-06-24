@@ -129,6 +129,7 @@ public class Solution implements Runnable{
 						}
 					}
 				}
+				printSingleTableData(tableName, maxKeys, jsonObjects);
 			} else {
 //				Printing column names of the table if table name is not in the column names
 				if (!Arrays.asList(maxKeys).contains(tableName.split("\\(")[0])) {
@@ -267,6 +268,18 @@ public class Solution implements Runnable{
 //			Adding line break after each table
 			System.out.println();
 		}
+	}
+
+
+	/**
+	 * This method will print data of test case which
+	 * has only one table
+	 *
+	 * @param tableName
+	 * @param maxKeys
+	 * @param jsonObjects
+	 */
+	private void printSingleTableData(String tableName, Object[] maxKeys, ArrayList<JsonObject> jsonObjects) {
 	}
 
 
