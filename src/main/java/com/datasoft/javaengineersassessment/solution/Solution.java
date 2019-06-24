@@ -111,7 +111,8 @@ public class Solution implements Runnable{
 			System.out.print("id");
 
 //			Retrieving all the column names form json object
-			Object[] maxKeys = jsonObjects.get(getMaxSize(jsonObjects)).keySet().toArray();
+			int maxKeyIndex = getMaxSize(jsonObjects);
+			Object[] maxKeys = jsonObjects.get(maxKeyIndex).keySet().toArray();
 
 //			Checking number of tables for the case
 			if (tableNames.size() == 1) {
