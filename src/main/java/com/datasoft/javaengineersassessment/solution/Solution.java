@@ -155,6 +155,20 @@ public class Solution implements Runnable{
 							}
 						}
 					} else {
+						for (int i=0; i<jsonObjects.size(); i++) {
+							System.out.print("\n"+(i+1));
+							for (Object maxKey : maxKeys) {
+								if ((!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) &&
+										(!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonArray())) {
+//									Printing value only if it is not object or array
+									System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
+											.replace("\"", ""));
+								} else if (jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) {
+//									Printing reference of parent object if the value is an object
+									System.out.print(" " + (i+1));
+								}
+							}
+						}
 					}
 
 //					Adding a empty line between tables of same test case
