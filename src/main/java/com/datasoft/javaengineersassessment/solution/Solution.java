@@ -105,7 +105,7 @@ public class Solution implements Runnable{
 
 //		Printing table names and data
 		for (String tableName : tableNames) {
-			System.out.println(tableName);
+			System.out.println(tableName.split("\\(")[0]);
 
 //			Printing 1st column name which is id
 			System.out.print("id");
