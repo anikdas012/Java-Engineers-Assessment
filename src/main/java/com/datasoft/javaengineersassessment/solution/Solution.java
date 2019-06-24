@@ -111,7 +111,7 @@ public class Solution implements Runnable{
 //				Printing column names of the table if table name is not in the column names
 				if (!Arrays.asList(maxKeys).contains(tableName.split("\\(")[0])) {
 //					Show output of outer object table incase of multiple tables
-					printOuterObjectData(maxKeys, tableName, jsonObjects);
+					printOuterObjectData(maxKeys, tableName, jsonObjects, maxKeyIndex);
 				} else {
 //					Printing column names for the table who's data is in the nested json object
 					if (jsonObjects.get(maxKeyIndex).get(tableName.split("\\(")[0]).isJsonObject()) {
@@ -216,7 +216,7 @@ public class Solution implements Runnable{
 	 * @param tableName
 	 * @param jsonObjects
 	 */
-	private void printOuterObjectData(Object[] maxKeys, String tableName, ArrayList<JsonObject> jsonObjects) {
+	private void printOuterObjectData(Object[] maxKeys, String tableName, ArrayList<JsonObject> jsonObjects, int maxKeyIndex) {
 		for (Object maxKey : maxKeys) {
 //						if the vale of the column is not an array then printing that column name
 			if ((!jsonObjects.get(maxKeyIndex).get(String.valueOf(maxKey)).isJsonArray())) {
