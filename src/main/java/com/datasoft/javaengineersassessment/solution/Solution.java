@@ -73,7 +73,7 @@ public class Solution implements Runnable{
 			if (i+1 < numberOfTestCase) {
 				IO.readLine();
 			}
-			
+
 //			Clearing memory
 			tableNames.clear();
 			jsonObjects.clear();
@@ -100,15 +100,23 @@ public class Solution implements Runnable{
 		System.out.println("------------- Output Ended ------------------");
 		System.out.println("\n\n\n");
 
+//		Printing test case number
 		System.out.println("Test# "+testCaseNo);
+
+//		Printing table names and data
 		for (String tableName : tableNames) {
 			System.out.println(tableName + " ");
 			System.out.print("id");
+
+//			Checking number of tables for the case
 			if (tableNames.size() == 1) {
+//				Printing all the column names
 				Object[] maxKeys = jsonObjects.get(getMaxSize(jsonObjects)).keySet().toArray();
 				for (Object maxKey : maxKeys) {
 					System.out.print(" " + maxKey);
 				}
+
+//				Printing all the rows of json data
 				for (int i=0; i<jsonObjects.size(); i++) {
 					System.out.print("\n"+(i+1));
 					for (Object maxKey: maxKeys) {
