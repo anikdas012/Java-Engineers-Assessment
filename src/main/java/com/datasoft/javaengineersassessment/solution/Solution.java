@@ -118,50 +118,7 @@ public class Solution implements Runnable{
 //						Show output of inner object table incase of multiple tables
 						printInnerObjectData(tableName, jsonObjects, maxKeyIndex);
 					} else {
-//						Retrieving the key who's value is array
-						String key = tableName.split("\\(")[0];
-
-//						Printing column name for array data
-						System.out.print(" " + tableNames.get(0).split("\\(")[0] + " "+ key);
-
-//						Getting total number of entries for all objects
-						int itemCount = 0;
-						for (JsonObject object : jsonObjects) {
-							itemCount += object.get(key).getAsJsonArray().size();
-						}
-
-//						Printing all data rows in required order
-						if (tableName.contains("desc")) {
-//							Setting maximum id to maximum number of entries
-							int ids = itemCount;
-
-//							Iterating through all json objects
-							for (int i=jsonObjects.size()-1; i>=0; i--) {
-//								Getting the actual array
-								JsonArray jsonArray = jsonObjects.get(i).get(key).getAsJsonArray();
-//								Iterating through all entries of the array
-								for (int j=jsonArray.size()-1; j>=0; j--) {
-//									Printing the actual data (id, user ref and array value)
-									System.out.print("\n" + ids-- + " " + (i+1) +" " + String.valueOf(jsonArray.get(j))
-											.replace("\"", ""));
-								}
-							}
-						} else {
-//							Setting initial id to 1
-							int ids = 1;
-
-//							Iterating through all json objects
-							for (int i=0; i<jsonObjects.size(); i++) {
-//								Getting the actual array
-								JsonArray jsonArray = jsonObjects.get(i).get(key).getAsJsonArray();
-//								Iterating through all entries of the array
-								for (int j=0; j<jsonArray.size(); j++) {
-//									Printing the actual data (id, user ref and array value)
-									System.out.print("\n" + ids++ + " " + (i+1) + " " + String.valueOf(jsonArray.get(j))
-											.replace("\"", ""));
-								}
-							}
-						}
+//						Show output of array data
 						printArrayData(tableName, tableNames, jsonObjects);
 					}
 				}
@@ -174,12 +131,56 @@ public class Solution implements Runnable{
 
 	/**
 	 * This method will print data of array
-	 * 
+	 *
 	 * @param tableName
 	 * @param tableNames
 	 * @param jsonObjects
 	 */
 	private void printArrayData(String tableName, ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects) {
+//		Retrieving the key who's value is array
+		String key = tableName.split("\\(")[0];
+
+//		Printing column name for array data
+		System.out.print(" " + tableNames.get(0).split("\\(")[0] + " "+ key);
+
+//		Getting total number of entries for all objects
+		int itemCount = 0;
+		for (JsonObject object : jsonObjects) {
+			itemCount += object.get(key).getAsJsonArray().size();
+		}
+
+//		Printing all data rows in required order
+		if (tableName.contains("desc")) {
+//			Setting maximum id to maximum number of entries
+			int ids = itemCount;
+
+//			Iterating through all json objects
+			for (int i=jsonObjects.size()-1; i>=0; i--) {
+//				Getting the actual array
+				JsonArray jsonArray = jsonObjects.get(i).get(key).getAsJsonArray();
+//				Iterating through all entries of the array
+				for (int j=jsonArray.size()-1; j>=0; j--) {
+//					Printing the actual data (id, user ref and array value)
+					System.out.print("\n" + ids-- + " " + (i+1) +" " + String.valueOf(jsonArray.get(j))
+							.replace("\"", ""));
+				}
+			}
+		} else {
+//			Setting initial id to 1
+			int ids = 1;
+
+//			Iterating through all json objects
+			for (int i=0; i<jsonObjects.size(); i++) {
+//				Getting the actual array
+				JsonArray jsonArray = jsonObjects.get(i).get(key).getAsJsonArray();
+//				Iterating through all entries of the array
+				for (int j=0; j<jsonArray.size(); j++) {
+//					Printing the actual data (id, user ref and array value)
+					System.out.print("\n" + ids++ + " " + (i+1) + " " + String.valueOf(jsonArray.get(j))
+							.replace("\"", ""));
+				}
+			}
+		}
 	}
 
 
