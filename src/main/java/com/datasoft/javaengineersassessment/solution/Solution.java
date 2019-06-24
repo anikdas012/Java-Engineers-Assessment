@@ -154,6 +154,7 @@ public class Solution implements Runnable{
 
 //						Adding empty line between tables of same test case
 						System.out.println();
+						printInnerObjectData(tableName, jsonObjects, maxKeyIndex);
 					} else {
 //						Retrieving the key who's value is array
 						String key = tableName.split("\\(")[0];
@@ -209,8 +210,20 @@ public class Solution implements Runnable{
 
 
 	/**
+	 * This method will print data of inner object if
+	 * test case contains multiple tables
+	 *
+	 * @param tableName
+	 * @param jsonObjects
+	 * @param maxKeyIndex
+	 */
+	private void printInnerObjectData(String tableName, ArrayList<JsonObject> jsonObjects, int maxKeyIndex) {
+	}
+
+
+	/**
 	 * This method will print data of outer object if
-	 * test case has more than one table
+	 * test case has more than one tables
 	 *
 	 * @param maxKeys
 	 * @param tableName
