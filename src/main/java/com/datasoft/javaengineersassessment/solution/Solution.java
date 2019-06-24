@@ -117,10 +117,22 @@ public class Solution implements Runnable{
 				}
 
 //				Printing all the rows of json data
-				for (int i=0; i<jsonObjects.size(); i++) {
-					System.out.print("\n"+(i+1));
-					for (Object maxKey: maxKeys) {
-						System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey))).replace("\"", ""));
+//				Checking if output is required in which order and printing according to that
+				if (tableName.contains("desc")) {
+					for (int i=jsonObjects.size()-1; i>=0; i--) {
+						System.out.print("\n"+(i+1));
+						for (Object maxKey: maxKeys) {
+							System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
+									.replace("\"", ""));
+						}
+					}
+				} else {
+					for (int i=0; i<jsonObjects.size(); i++) {
+						System.out.print("\n"+(i+1));
+						for (Object maxKey: maxKeys) {
+							System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
+									.replace("\"", ""));
+						}
 					}
 				}
 			} else {
