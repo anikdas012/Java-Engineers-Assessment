@@ -142,6 +142,7 @@ public class Solution implements Runnable{
 			} else {
 
 			}
+			System.out.println();
 		}
 
 		System.out.println("\n\n\n");
