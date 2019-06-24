@@ -148,7 +148,7 @@ public class Solution implements Runnable{
 						for (Object maxKey : maxKeys) {
 							System.out.print(" " + maxKey);
 						}
-						
+
 //						Adding empty line between tables of same test case
 						System.out.println();
 					} else {
