@@ -129,7 +129,33 @@ public class Solution implements Runnable{
 					}
 				}
 			} else {
+//				Printing column names of the table if table name is not in the column names
+				if (!Arrays.asList(maxKeys).contains(tableName.split("\\(")[0])) {
+					for (Object maxKey : maxKeys) {
+//						if the vale of the column is not an array then printing that column name
+						if ((!jsonObjects.get(maxKeyIndex).get(String.valueOf(maxKey)).isJsonArray())) {
+							System.out.print(" " + maxKey);
+						}
+					}
 
+//					Adding a empty line between tables of same test case
+					System.out.println();
+				} else {
+//					Printing column names for the table who's data is in the nested json object
+					if (jsonObjects.get(maxKeyIndex).get(tableName.split("\\(")[0]).isJsonObject()) {
+						JsonObject jsonObject = jsonObjects.get(maxKeyIndex).get(tableName.split("\\(")[0]).getAsJsonObject();
+						maxKeys = jsonObject.keySet().toArray();
+						for (Object maxKey : maxKeys) {
+							System.out.print(" " + maxKey);
+						}
+						
+//						Adding empty line between tables of same test case
+						System.out.println();
+					} else {
+//						Printing column name for array data
+						System.out.print(" " + tableNames.get(0).split("\\(")[0] + " "+ tableName.split("\\(")[0]);
+					}
+				}
 			}
 			System.out.println();
 		}
