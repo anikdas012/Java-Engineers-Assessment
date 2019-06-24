@@ -110,48 +110,7 @@ public class Solution implements Runnable{
 			} else {
 //				Printing column names of the table if table name is not in the column names
 				if (!Arrays.asList(maxKeys).contains(tableName.split("\\(")[0])) {
-					for (Object maxKey : maxKeys) {
-//						if the vale of the column is not an array then printing that column name
-						if ((!jsonObjects.get(maxKeyIndex).get(String.valueOf(maxKey)).isJsonArray())) {
-							System.out.print(" " + maxKey);
-						}
-					}
-
-//					Printing row data of the table according to required order
-					if (tableName.contains("desc")) {
-						for (int i=jsonObjects.size()-1; i>=0; i--) {
-							System.out.print("\n"+(i+1));
-							for (Object maxKey : maxKeys) {
-								if ((!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) &&
-										(!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonArray())) {
-//									Printing value only if it is not object or array
-									System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
-											.replace("\"", ""));
-								} else if (jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) {
-//									Printing reference of parent object if the value is an object
-									System.out.print(" " + (i+1));
-								}
-							}
-						}
-					} else {
-						for (int i=0; i<jsonObjects.size(); i++) {
-							System.out.print("\n"+(i+1));
-							for (Object maxKey : maxKeys) {
-								if ((!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) &&
-										(!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonArray())) {
-//									Printing value only if it is not object or array
-									System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
-											.replace("\"", ""));
-								} else if (jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) {
-//									Printing reference of parent object if the value is an object
-									System.out.print(" " + (i+1));
-								}
-							}
-						}
-					}
-
-//					Adding a empty line between tables of same test case
-					System.out.println();
+//					Show output of outer object table incase of multiple tables
 					printOuterObjectData(maxKeys, tableName, jsonObjects);
 				} else {
 //					Printing column names for the table who's data is in the nested json object
@@ -252,12 +211,54 @@ public class Solution implements Runnable{
 	/**
 	 * This method will print data of outer object if
 	 * test case has more than one table
-	 * 
+	 *
 	 * @param maxKeys
 	 * @param tableName
 	 * @param jsonObjects
 	 */
 	private void printOuterObjectData(Object[] maxKeys, String tableName, ArrayList<JsonObject> jsonObjects) {
+		for (Object maxKey : maxKeys) {
+//						if the vale of the column is not an array then printing that column name
+			if ((!jsonObjects.get(maxKeyIndex).get(String.valueOf(maxKey)).isJsonArray())) {
+				System.out.print(" " + maxKey);
+			}
+		}
+
+//					Printing row data of the table according to required order
+		if (tableName.contains("desc")) {
+			for (int i=jsonObjects.size()-1; i>=0; i--) {
+				System.out.print("\n"+(i+1));
+				for (Object maxKey : maxKeys) {
+					if ((!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) &&
+							(!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonArray())) {
+//									Printing value only if it is not object or array
+						System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
+								.replace("\"", ""));
+					} else if (jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) {
+//									Printing reference of parent object if the value is an object
+						System.out.print(" " + (i+1));
+					}
+				}
+			}
+		} else {
+			for (int i=0; i<jsonObjects.size(); i++) {
+				System.out.print("\n"+(i+1));
+				for (Object maxKey : maxKeys) {
+					if ((!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) &&
+							(!jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonArray())) {
+//									Printing value only if it is not object or array
+						System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
+								.replace("\"", ""));
+					} else if (jsonObjects.get(i).get(String.valueOf(maxKey)).isJsonObject()) {
+//									Printing reference of parent object if the value is an object
+						System.out.print(" " + (i+1));
+					}
+				}
+			}
+		}
+
+//					Adding a empty line between tables of same test case
+		System.out.println();
 	}
 
 
