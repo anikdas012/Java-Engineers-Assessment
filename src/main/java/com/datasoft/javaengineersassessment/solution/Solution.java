@@ -30,6 +30,8 @@ public class Solution implements Runnable{
 	 */
 	private void getInput() {
 		int numberOfTestCase = Integer.parseInt(Objects.requireNonNull(IO.readLine()));
+
+//		Reading user input for all test cases
 		for (int i=0; i<numberOfTestCase; i++) {
 			String[] temp = IO.readLine().split(" ");
 			int numberOfTables = Integer.parseInt(temp[0]);
@@ -39,6 +41,8 @@ public class Solution implements Runnable{
 			if (numberOfTables == temp.length) {
 				tableNames.addAll(Arrays.asList(temp));
 			}
+
+//			Storing JSON objects in an arraylist
 			ArrayList<JsonObject> jsonObjects = new ArrayList<>();
 			for (int j = 0; j < numberOfJsonData; j++) {
 				StringBuilder jobj = new StringBuilder();
@@ -61,10 +65,16 @@ public class Solution implements Runnable{
 				}
 				jsonObjects.add(new JsonParser().parse(jobj.toString()).getAsJsonObject());
 			}
+
+//			Showing output
 			showOutput(tableNames, jsonObjects, i+1);
+
+//			Reading empty line after each test case except the last one
 			if (i+1 < numberOfTestCase) {
 				IO.readLine();
 			}
+			
+//			Clearing memory
 			tableNames.clear();
 			jsonObjects.clear();
 		}
