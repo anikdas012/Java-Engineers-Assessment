@@ -152,6 +152,7 @@ public class Solution implements Runnable{
 
 //					Adding a empty line between tables of same test case
 					System.out.println();
+					printOuterObjectData(maxKeys, tableName, jsonObjects);
 				} else {
 //					Printing column names for the table who's data is in the nested json object
 					if (jsonObjects.get(maxKeyIndex).get(tableName.split("\\(")[0]).isJsonObject()) {
@@ -245,6 +246,18 @@ public class Solution implements Runnable{
 //			Adding line break after each table
 			System.out.println();
 		}
+	}
+
+
+	/**
+	 * This method will print data of outer object if
+	 * test case has more than one table
+	 * 
+	 * @param maxKeys
+	 * @param tableName
+	 * @param jsonObjects
+	 */
+	private void printOuterObjectData(Object[] maxKeys, String tableName, ArrayList<JsonObject> jsonObjects) {
 	}
 
 
