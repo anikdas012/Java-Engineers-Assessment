@@ -88,18 +88,6 @@ public class Solution implements Runnable{
 	 * @param jsonObjects
 	 */
 	private void showOutput(ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects, int testCaseNo) {
-		System.out.println("------------- Output ------------------");
-		System.out.println("Table names: "+tableNames);
-		System.out.println("Json Objects: "+jsonObjects);
-		System.out.println("Json Objects size: "+jsonObjects.size());
-		for (int i=0; i<jsonObjects.size(); i++) {
-			System.out.println("Json Object No. "+i+" size: "+jsonObjects.get(i).size());
-			System.out.println("Json Object No. "+i+" key set: "+jsonObjects.get(i).keySet());
-			System.out.println("Json Object No. "+i+" entry set: "+jsonObjects.get(i).entrySet());
-		}
-		System.out.println("------------- Output Ended ------------------");
-		System.out.println("\n\n\n");
-
 //		Printing test case number
 		System.out.println("\nTest# "+testCaseNo);
 
@@ -145,8 +133,6 @@ public class Solution implements Runnable{
 			}
 			System.out.println();
 		}
-
-		System.out.println("\n\n\n");
 	}
 
 
