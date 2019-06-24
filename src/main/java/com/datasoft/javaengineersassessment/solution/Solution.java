@@ -162,12 +162,24 @@ public class Solution implements Runnable{
 								}
 							}
 						}
+						printArrayData(tableName, tableNames, jsonObjects);
 					}
 				}
 			}
 //			Adding line break after each table
 			System.out.println();
 		}
+	}
+
+
+	/**
+	 * This method will print data of array
+	 * 
+	 * @param tableName
+	 * @param tableNames
+	 * @param jsonObjects
+	 */
+	private void printArrayData(String tableName, ArrayList<String> tableNames, ArrayList<JsonObject> jsonObjects) {
 	}
 
 
