@@ -19,9 +19,8 @@ public class Solution implements Runnable{
 	 */
 	@Override
 	public void run() {
-		System.out.println("All set ...");
+//		Get user input
 		getInput();
-		System.out.println("Goodbye :)");
 	
 	}
 
@@ -133,7 +132,7 @@ public class Solution implements Runnable{
 					}
 				}
 			}
-			
+
 //			Adding line break after each table
 			System.out.println();
 		}
