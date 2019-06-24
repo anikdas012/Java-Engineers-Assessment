@@ -105,30 +105,7 @@ public class Solution implements Runnable{
 
 //			Checking number of tables for the case
 			if (tableNames.size() == 1) {
-//				Printing all the column names
-				for (Object maxKey : maxKeys) {
-					System.out.print(" " + maxKey);
-				}
-
-//				Printing all the rows of json data
-//				Checking if output is required in which order and printing according to that
-				if (tableName.contains("desc")) {
-					for (int i=jsonObjects.size()-1; i>=0; i--) {
-						System.out.print("\n"+(i+1));
-						for (Object maxKey: maxKeys) {
-							System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
-									.replace("\"", ""));
-						}
-					}
-				} else {
-					for (int i=0; i<jsonObjects.size(); i++) {
-						System.out.print("\n"+(i+1));
-						for (Object maxKey: maxKeys) {
-							System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
-									.replace("\"", ""));
-						}
-					}
-				}
+//				Produce output of single table test case
 				printSingleTableData(tableName, maxKeys, jsonObjects);
 			} else {
 //				Printing column names of the table if table name is not in the column names
@@ -280,6 +257,30 @@ public class Solution implements Runnable{
 	 * @param jsonObjects
 	 */
 	private void printSingleTableData(String tableName, Object[] maxKeys, ArrayList<JsonObject> jsonObjects) {
+//		Printing all the column names
+		for (Object maxKey : maxKeys) {
+			System.out.print(" " + maxKey);
+		}
+
+//		Printing all the rows of json data
+//		Checking if output is required in which order and printing according to that
+		if (tableName.contains("desc")) {
+			for (int i=jsonObjects.size()-1; i>=0; i--) {
+				System.out.print("\n"+(i+1));
+				for (Object maxKey: maxKeys) {
+					System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
+							.replace("\"", ""));
+				}
+			}
+		} else {
+			for (int i=0; i<jsonObjects.size(); i++) {
+				System.out.print("\n"+(i+1));
+				for (Object maxKey: maxKeys) {
+					System.out.print(" " + String.valueOf(jsonObjects.get(i).get(String.valueOf(maxKey)))
+							.replace("\"", ""));
+				}
+			}
+		}
 	}
 
 
