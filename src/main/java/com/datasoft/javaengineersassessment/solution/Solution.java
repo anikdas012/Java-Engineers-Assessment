@@ -105,24 +105,35 @@ public class Solution implements Runnable{
 
 //			Checking number of tables for the case
 			if (tableNames.size() == 1) {
+
 //				Produce output of single table test case
 				printSingleTableData(tableName, maxKeys, jsonObjects);
+
 			} else {
+
 //				Printing column names of the table if table name is not in the column names
 				if (!Arrays.asList(maxKeys).contains(tableName.split("\\(")[0])) {
+
 //					Show output of outer object table incase of multiple tables
 					printOuterObjectData(maxKeys, tableName, jsonObjects, maxKeyIndex);
+
 				} else {
+
 //					Printing column names for the table who's data is in the nested json object
 					if (jsonObjects.get(maxKeyIndex).get(tableName.split("\\(")[0]).isJsonObject()) {
+
 //						Show output of inner object table incase of multiple tables
 						printInnerObjectData(tableName, jsonObjects, maxKeyIndex);
+
 					} else {
+
 //						Show output of array data
 						printArrayData(tableName, tableNames, jsonObjects);
+
 					}
 				}
 			}
+			
 //			Adding line break after each table
 			System.out.println();
 		}
