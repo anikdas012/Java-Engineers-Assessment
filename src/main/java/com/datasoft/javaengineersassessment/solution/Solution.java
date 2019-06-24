@@ -105,7 +105,7 @@ public class Solution implements Runnable{
 
 //		Printing table names and data
 		for (String tableName : tableNames) {
-			System.out.println(tableName + " ");
+			System.out.println(tableName);
 			System.out.print("id");
 
 //			Checking number of tables for the case
