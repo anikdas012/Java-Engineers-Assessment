@@ -164,10 +164,13 @@ public class Solution implements Runnable{
 //			Setting maximum id to maximum number of entries
 			int ids = itemCount;
 
+//			Creating a reference of jsonArray
+			JsonArray jsonArray;
+
 //			Iterating through all json objects
 			for (int i=jsonObjects.size()-1; i>=0; i--) {
 //				Getting the actual array
-				JsonArray jsonArray = jsonObjects.get(i).get(key).getAsJsonArray();
+				jsonArray = jsonObjects.get(i).get(key).getAsJsonArray();
 //				Iterating through all entries of the array
 				for (int j=jsonArray.size()-1; j>=0; j--) {
 //					Printing the actual data (id, user ref and array value)
